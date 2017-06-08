@@ -12,12 +12,17 @@
 3. Install required packages:
 
     - `sudo apt-get install git fail2ban python3-pip python3-dev nginx build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev`
-    
-4. Install virtualenv tools:
+
+4. Install npm tools:
+
+    - `sudo apt-get install npm nodejs-legacy`
+    - `sudo npm install -g configurable-http-proxy`
+
+5. Install virtualenv tools:
 
     - `sudo pip3 install virtualenv virtualenvwrapper`
     
-5. Setup bash aliases:
+6. Setup bash aliases:
 
     - Append following lines to `~/.bashrc`
       * `export WORKON_HOME=~/.virtualenvs`
@@ -25,3 +30,24 @@
       * `source /usr/local/bin/virtualenvwrapper.sh`
      
    - Run `source ~/.bashrc`
+
+7. Use pyenv to download desired version of Python:
+
+    - Clone pyenv
+        * `git clone https://github.com/yyuu/pyenv.git ~/.pyenv`
+    - Install desired version of Python (3.6.1 in this example)
+        * `sudo ~/.pyenv/bin/pyenv install 3.6.1`
+        
+8. Create virtual environment using virtualenvwrapper
+
+    - Using Python 3.6.1 installation with venv name "jhub"
+        * `mkvirtualenv -p ~/.pyenv/versions/3.6.1/bin/python jhub`
+        
+8. Prepare virtualenv "jhub"
+
+    - Enable virtualenv
+        * `workon jhub`
+    - Install jupyterhub
+        * `pip install jupyterhub`
+    - Install/Updgrade Jupyter notebook
+        * `pip install --upgrade notebook`
